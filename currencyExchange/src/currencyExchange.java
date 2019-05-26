@@ -6,7 +6,8 @@ public class currencyExchange {
         int MenuList;
         char decision;
         Long Value;
-        Double result;
+        int length;
+        Double result = null;
 
 
         do {
@@ -54,19 +55,23 @@ public class currencyExchange {
                         System.out.println("Pick the number range between 1 and 4");
 
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Something went wrong");
                 break;
+            } finally {
+                if (result == null) {
+                    System.out.println("Try to restart the program");
+                }
             }
-    finally {
-        System.out.println("Try to restart the program");
-    }
             // This code needs some improvement
             System.out.println("Would you like to continue? (Y/y or N/n)");
             decision = keyboard.next().charAt(0); // Decision either Y (Yes) or N (No);
         }
-        while (decision == 'Y' || decision == 'y'); {
-        }
+        while (decision == 'Y' || decision == 'y' & decision.length() == 1);
+        /*
+        This code needs some improvement, due to the validation.
+        Currently Y1, y1, y2, works fine etc. Number only letter and up to 1 digit
+         */
         System.out.println("Thank you for using the software");
     }
 }
